@@ -130,22 +130,18 @@ The directory structure of new project looks like this:
 
 ```bash
 # clone project
-git clone https://github.com/ChristophAlt/pytorch-ie-hydra-template.git
-cd pytorch-ie-hydra-template
+git clone https://github.com/leonhardhennig/copious-ner.git
+cd copious-ner
 
 # [OPTIONAL] create conda environment
-conda create -n myenv python=3.9
-conda activate myenv
+conda create -n copious-ner python=3.9
+conda activate copious-ner
 
 # install pytorch according to instructions
 # https://pytorch.org/get-started/
 
 # install requirements
 pip install -r requirements.txt
-
-# [OPTIONAL] symlink log directories and the default model directory to
-# "$HOME/experiments/my-project" since they can grow a lot
-bash setup_symlinks.sh $HOME/experiments/my-project
 
 # [OPTIONAL] set any environment variables by creating an .env file
 # 1. copy the provided example file:
@@ -163,6 +159,8 @@ When running `python train.py` you should see something like this:
 ![](https://github.com/ChristophAlt/pytorch-ie-hydra-template/blob/resources/images/terminal3.png)
 
 </div>
+
+For running on the COPIOUS data set, use `python train.py experiment=copious`.
 
 ### ⚡  Your Superpowers
 
