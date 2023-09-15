@@ -1,0 +1,16 @@
+_target_: src.utils.execute_pipeline
+
+input:
+  _target_: pytorch_ie.DatasetDict.load_dataset
+  path: pie/brat
+  name: merge_non_contiguous_spans
+  base_dataset_kwargs:
+    data_dir: /media/leonhard/ssd1/leonhard/data/ner/copious/copious_published
+    subdirectory_mapping:
+      train: train
+      test: test
+      dev: validation
+  document_converters:
+    pytorch_ie.documents.TextDocumentWithLabeledEntities:
+    #src.document.types.TextDocumentWithEntityMentions:
+       spans: entities
