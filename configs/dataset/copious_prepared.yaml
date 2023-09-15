@@ -1,8 +1,6 @@
 defaults:
   - copious_base
   - _convert_documents
-  #- _add_partitions
-  #- _trim_partitions
   - _select_n
 
 add_partitions:
@@ -10,5 +8,4 @@ add_partitions:
     pattern: "\n"
 
 convert_documents:
-  #document_type: src.document.types.TextDocumentWithEntityMentions
   document_type: pytorch_ie.documents.TextDocumentWithLabeledEntities

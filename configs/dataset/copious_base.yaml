@@ -1,16 +1,19 @@
 _target_: src.utils.execute_pipeline
 
+setup:
+  _target_: src.utils.download_and_unzip
+  url: http://nactem.ac.uk/copious/copious_published.zip
+  target_path: data/datasets
 input:
   _target_: pytorch_ie.DatasetDict.load_dataset
   path: pie/brat
   name: merge_non_contiguous_spans
   base_dataset_kwargs:
-    data_dir: /media/leonhard/ssd1/leonhard/data/ner/copious/copious_published
+    data_dir: ${dataset.setup.target_path}/copious_published
     subdirectory_mapping:
       train: train
       test: test
       dev: validation
   document_converters:
     pytorch_ie.documents.TextDocumentWithLabeledEntities:
-    #src.document.types.TextDocumentWithEntityMentions:
-       spans: entities
+      spans: entities
